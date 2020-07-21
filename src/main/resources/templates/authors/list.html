@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Authors template</title>
+</head>
+<body>
+<h1>Author list</h1>
+<div>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>Books</th>
+        </tr>
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.firstName}">123</td>
+            <td th:text="${author.lastName}"> Spring in Action</td>
+            <td>
+                <table>
+                    <tr th:each="book : ${author.books}">
+                        <td th:text="${book.title}">123</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
